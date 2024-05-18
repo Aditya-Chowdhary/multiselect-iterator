@@ -16,6 +16,10 @@
       {
         "command": "multicursor-iterator.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "multicursor-iterator.iterate",
+        "title": "Iterate through selected"
       }
     ]
   },

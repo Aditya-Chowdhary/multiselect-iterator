@@ -19,6 +19,24 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from Multicursor Iterator!');
 	});
 
+	let iterator = vscode.commands.registerTextEditorCommand('multicursor-iterator.iterate', () => {
+		// vscode.window.showInformationMessage('Testing Iterator Command');
+		const editor = vscode.window.activeTextEditor;
+
+		if (editor) {
+			const selections = editor.selections;
+			const document = editor.document;
+			console.log("New")
+	
+			for (let element of selections) {
+				const word = document.getText(element);
+				console.log(element.anchor.line, element.anchor.character, word);	
+			}
+		} else {
+			vscode.window.showErrorMessage("You do not have an active text editor open!")
+		}
+	});
+
 	context.subscriptions.push(disposable);
 }
 
